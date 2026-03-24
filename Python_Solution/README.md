@@ -22,7 +22,7 @@ Run the script from the `/Python_Solution` directory:
 ```bash
 python3 app.py
 ```
-Check `error.txt` for details on any failed requests.
+Check `errors.txt` for details on any failed requests.
 
 ### Testing
 Run the test script from the `/Python_Solution` directory:

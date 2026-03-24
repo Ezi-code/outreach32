@@ -25,7 +25,7 @@ python3 app.py
 Check `error.txt` for details on any failed requests.
 
 ### Testing
-Run the test script from the `python/` directory:
+Run the test script from the `pytask/` directory:
 ```bash
 python3 -m unittest test.py
 ```

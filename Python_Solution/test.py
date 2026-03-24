@@ -2,7 +2,7 @@
 
 import unittest
 from pathlib import Path
-from pytask.app.app import get_urls_from_file, get_status_code
+from pyTask.app.app import get_urls_from_file, get_status_code
 
 BASE_DIR = Path(__file__).parent
 CSV_FILE = BASE_DIR / "test.csv"

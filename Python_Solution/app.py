@@ -32,19 +32,19 @@ def get_urls_from_file(file_path: Path) -> list[str]:
 def get_status_code(url: str) -> Optional[int]:
     """get the status code of a url."""
     try:
-        response = requests.get(url, timeout=5)
+        response = requests.head(url, timeout=5, allow_redirects=True)
         return response.status_code
     except requests.exceptions.RequestException as err:
-        return logging.error(f"{url} -> {err}")
+        logging.error(f"{url} -> {err}")
+        return err
 
 
 def main():
     """main function."""
     urls = get_urls_from_file(CSV_FILE)
     for url in urls:
-        status = get_status_code(url)
-        if isinstance(status, int):
-            print(f"({status}) {url}")
+        response = get_status_code(url)
+        print(f"({response}) {url}\n")
 
 
 if __name__ == "__main__":

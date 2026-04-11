@@ -37,18 +37,15 @@
 
         // {# YOUR CODE HERE # }
         const resultsElement = document.getElementById("results");
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
+        const dateFormatter = new Intl.DateTimeFormat("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
 
         data.forEach(item => {
-            const date = new Date(item.creation_date);
-            const month = monthNames[date.getMonth()];
-            const day = date.getDate();
-            const year = date.getFullYear();
-
-            const formattedDate = `${month} ${day}, ${year}`;
+            const date = new Date(item.creation_date + "T00:00:00Z");
+            const formattedDate = dateFormatter.format(date);
             const textStr = `Article "${item.title}" (Page ID ${item.page_id}) was created at ${formattedDate}.`;
 
             resultsElement.appendChild(document.createTextNode(textStr));

@@ -29,7 +29,7 @@ def get_urls_from_file(file_path: Path) -> list[str]:
     return urls
 
 
-def get_status_code(url: str) -> Optional[int]:
+def get_status_code(url: str) -> int | Optional[Exception]:
     """get the status code of a url."""
     try:
         response = requests.head(url, timeout=5, allow_redirects=True)
